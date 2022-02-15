@@ -16,6 +16,16 @@ public class GameManager : MonoBehaviour
     {
         player1Score++;
         this.player1Text.text = player1Score.ToString();
+        if (player2Score < player1Score)
+        {
+            this.player1Text.color = Color.green;
+            this.player2Text.color = Color.red;
+        }
+        else if (player2Score == player1Score)
+        {
+            this.player2Text.color = Color.white;
+            this.player1Text.color = Color.white;
+        }
         if (player1Score == 11)
         {
             Debug.Log("GAME OVER!!! Player 1 Wins!!!");
@@ -23,6 +33,8 @@ public class GameManager : MonoBehaviour
             this.player2Text.text = player2Score.ToString();
             player1Score = 0;
             this.player1Text.text = player1Score.ToString();
+            this.player2Text.color = Color.white;
+            this.player1Text.color = Color.white;
         }
         else
         {
@@ -34,6 +46,17 @@ public class GameManager : MonoBehaviour
     {
         player2Score++;
         this.player2Text.text = player2Score.ToString();
+
+        if (player2Score > player1Score)
+        {
+            this.player2Text.color = Color.green;
+            this.player1Text.color = Color.red;
+        }
+        else if(player2Score == player1Score)
+        {
+            this.player2Text.color = Color.white;
+            this.player1Text.color = Color.white;
+        }
         if(player2Score == 11)
         {
             Debug.Log("GAME OVER!!! Player 2 Wins!!!");
@@ -41,6 +64,8 @@ public class GameManager : MonoBehaviour
             this.player2Text.text = player2Score.ToString();
             player1Score = 0;
             this.player1Text.text = player1Score.ToString();
+            this.player2Text.color = Color.white;
+            this.player1Text.color = Color.white;
         }
         else
         {
